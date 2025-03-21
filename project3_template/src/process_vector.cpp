@@ -1,5 +1,6 @@
 #include <iostream>
 #include "process_vector.hpp"
+#include <map>
 using namespace std;
 
 void merge(vector<double> &data, int left, int mid, int right) {
@@ -81,8 +82,47 @@ double find_median (vector<double> v){
 }
 
 double find_mode (vector<double> v){
-    int size = v.size();
+    map<double,double> elementFrequency;
+    double mode;
+    //initialize values
+    double currElement = v.at(0);
+    elementFrequency[currElement] = 1;
+    //create map with element-frequency pairs
+    for (int i = 1;i < v.size();i++) {
+        if (v.at(i) == currElement) {
+            ++elementFrequency[currElement];
+        } else {
+            currElement = v.at(i);
+            elementFrequency[currElement] = 1;
+        }
+    }
+    int maxFrequency = 0;
+    //find max frequency
+    for (auto element : elementFrequency) {
+        if (element.second > maxFrequency) {
+            maxFrequency = element.second;
+        }
+    }
+    // Collect elements that have the maximum frequency
+    int numElementsMaxFreq = 0;
+    vector<double> modes;
+    for (auto element : elementFrequency) {
+        if (element.second == maxFrequency) {
+            modes.push_back(element.first);
+            numElementsMaxFreq++;
+        }
+    }
+    // If multiple modes are found, return the average of the modes
+    double sum = 0;
+    for (double mode : modes) {
+        sum += mode;
+    }
+    mode = sum / numElementsMaxFreq;
+    //old version
+    /* int size = v.size();
     //initialize mode
+
+    vector<double> modes;
     double mode = v[0];
     int currCount = 1;
     int maxCount = 1;
@@ -104,6 +144,6 @@ double find_mode (vector<double> v){
     //check last element
     if (currCount > maxCount) {
         mode = v[size-1];
-    }
+    } */
     return mode;
 }

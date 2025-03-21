@@ -12,6 +12,7 @@
 #include <fstream>
 #include <iostream>
 #include <vector>
+#include <map>
 
 
 using namespace std;
@@ -61,46 +62,11 @@ int main(){
     cout << "The orderely sorted list of " << results.size() << " values is: " << endl;
     printVectorContents(results);
     //print stats
-    cout << "The mean is " << find_mean(results) << endl;
-    cout << "The median is " << find_median(results) << endl;
-    cout << "The mode is " << find_mode(results) << endl;
+    cout << "The mean is " << fixed << setprecision(4) << find_mean(results) << endl;
+    cout << "The median is " << fixed << setprecision(4) << find_median(results) << endl;
+    cout << "The mode is " << fixed << setprecision(4) << find_mode(results) << endl;
 
-    cout << "*** Goodbye. ***" << endl;
-
-    //////////////////////////////////////
-   /*  printTitle(); */
-    //read how many files will be processed
-    /* int NumFilesToRead; 
-    cout << "Enter the number of files to read: ";
-    cin >> NumFilesToRead; */
-
-    //take in fileName
-    //string ithFileName = "/Users/jonahdowning/AU Coding Projects/COMP2710/Project3/project3_template/src/data.txt";
-
-    /* string ithFileName;
-    cout << "Enter the filename for file 1: ";
-    cin >> ithFileName;
-
-    //check file
-    std::ifstream file (ithFileName);
-    vector<double> results;
-    string currLine;
-    int i = 0;
-    while (getline(file, currLine )) {
-        results.push_back(stod(currLine));
-        i++;
-    }
-    printVectorContents(results);
-    file.close();
- */
-    /* For loop 
-        1. read file name
-        2. print elements in file (for testing purposes, remove afterwards)
-        3. write to new vector cumulativeResults
-        4. print elements from new vector
-    */
-    //sort cumulativeResults into new file sortedResults
-    //printOrderedResults
+    cout << "\n*** Goodbye. ***" << endl;
 }
 
 void printTitle() {

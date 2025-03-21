@@ -2,6 +2,7 @@
 #define _PROCESS_VECTOR_H_
 
 #include <vector>
+#include <map>
 
 using namespace std;
 
