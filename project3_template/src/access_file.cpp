@@ -5,19 +5,21 @@
 using namespace std;
 
 bool check_file(string FILEPATH){
-    /* try {
-        // Check if the file exists and is a regular file (not a directory or symbolic link)
-        return fs::exists(FILEPATH) && fs::is_regular_file(FILEPATH);
-    } catch (const fs::filesystem_error& e) {
-        std::cerr << "Error checking file: " << e.what() << std::endl;
+    ifstream file;
+    file.open(FILEPATH);
+    if (file.is_open()) {
+        file.close();
+        return true;
+    }
+    else {
+        cout << "File not found. Please try again.\n" << endl;
         return false;
-    } */
+
+    }
     
-    std::ofstream file ("test1.txt");
+
     
     
-    file.close();
-    return true;
 }
 
 bool isValidNumber(const string& str) {

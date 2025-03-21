@@ -13,6 +13,7 @@
 #include <iostream>
 #include <vector>
 #include <map>
+#include <iomanip>
 
 
 using namespace std;
@@ -32,7 +33,9 @@ int main(){
     cout << "Enter the number of files to read: ";
     cin >> NumFilesToRead;
     cout << endl;
-
+    /* while (check_file(!fileToBeProcessed)) {
+        
+    } */
     //read and process the files
     for (int i = 1; i <= NumFilesToRead; i++ ) {
     //take in file to be processed
@@ -42,7 +45,7 @@ int main(){
         
     //read file
         int preSize = results.size();
-        if(read_file(fileToBeProcessed, results)==false) {
+        if(!(check_file(fileToBeProcessed)) ||  !(read_file(fileToBeProcessed, results))) {
             i--;
             continue;
         }
