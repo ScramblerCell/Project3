@@ -19,7 +19,6 @@ bool check_file(string FILEPATH);
 
 /**
  * @brief read file in FILEPATH then parse the file and save its content into vector v
-return value: a bool that indicates if the contents in FILEPATH is legal or not
  * 
  * @param FILEPATH  a string of file path
  * @param v         a reference to a vector of double

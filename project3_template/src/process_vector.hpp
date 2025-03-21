@@ -20,14 +20,23 @@ arguements:
     v2: a vector of double
 return value: a vector of double that is the combination of v1 and v2
 */
+
+/**
+ * @brief 
+ * 
+ * @param v1 
+ * @param v2 
+ * @return vector<double> 
+ */
 vector<double> merge(vector<double> v1, vector<double> v2);
 
-/*
-function name: find_mean
-arguements:
-    v: a vector of double
-return value: a double that is the mean of all the doubles in v
-*/
+
+/**
+ * @brief finds mean
+ * 
+ * @param v     vector of doubles
+ * @return double  that is the mean of all the doubles in v
+ */
 double find_mean (vector<double> v);
 
 /*
@@ -37,7 +46,6 @@ arguements:
 return value: a double that is the median of all the doubles in v
 */
 double find_median (vector<double> v);
-
 /*
 function name: find_mode
 arguements:
