@@ -45,6 +45,13 @@
         "algorithm": "cpp",
         "complex": "cpp",
         "sstream": "cpp",
-        "regex": "cpp"
+        "regex": "cpp",
+        "__node_handle": "cpp",
+        "__tree": "cpp",
+        "map": "cpp",
+        "__hash_table": "cpp",
+        "deque": "cpp",
+        "optional": "cpp",
+        "unordered_map": "cpp"
     }
 }

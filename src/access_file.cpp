@@ -2,7 +2,24 @@
 #include "access_file.hpp"
 #include <vector>
 #include <regex>
+#include <fstream>
 using namespace std;
+
+void printVectorContents(std::ostream& out, vector<double> data) {
+    for (int i = 0; i < data.size(); i++) {
+        out << data.at(i) << " ";
+    }
+    out<<endl;
+}
+void printStatistics(std::ostream& out, vector<double> data, double mean, double median, double mode) {
+    //print
+    out << "The orderely sorted list of " << data.size() << " values is: " << endl;
+    printVectorContents(out, data);
+    //print stats
+    out << "\nThe mean is " << fixed << setprecision(4) << mean << endl;
+    out << "The median is " << fixed << setprecision(4) << median << endl;
+    out << "The mode is " << fixed << setprecision(4) << mode << endl;
+}
 
 bool check_file(string FILEPATH){
     ifstream file;
@@ -62,8 +79,15 @@ bool read_file(string FILEPATH, vector<double>& v) {
 }
 
 bool write_file(string FILEPATH, vector<double> v, double mean, double median, double mode){
-    // put your inplementation here
-    return true;
+    fstream file;
+    //FIXME: check if file is valid
+    file.open(FILEPATH, ios::out);
+    if (file.is_open()) {
+        printStatistics(file, v, mean, median, mode);
+        return true;
+    }
+    
+    return false;
 }
 
 

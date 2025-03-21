@@ -5,8 +5,13 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
+#include <regex>
 
 using namespace std;
+
+void printVectorContents(std::ostream& out, vector<double> data);
+void printStatistics(std::ostream& out, vector<double> data, double mean, double median, double mode);
+
 
 /**
  * @brief checks if FILEPATH is accessible
