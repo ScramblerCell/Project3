@@ -19,7 +19,8 @@
 using namespace std;
 //prototype functions
 void printTitle();
-
+void printStatistics(vector<double> data, double mean, double median, double mode);
+void printVectorContents(vector<double> data);
 void printLastElements( string file, vector<double> data, int preSizeVector, int postSizeVector);
 
 int main(){
@@ -56,12 +57,18 @@ int main(){
 
     //Statistics Section
     cout << "*** Summarized Statistics ***\n" << endl;
-    printStatistics(std::cout, results, find_mean(results), find_median(results),find_mode(results));
+    printStatistics(results, find_mean(results), find_median(results),find_mode(results));
     //write to CSV file
+    string csvFilename;
     cout << "\n\nEnter the output filename to save: ";
-    string csvFilename; 
     cin >> csvFilename;
-    cout << endl;
+    //input validation
+    while (!check_file(csvFilename)) {
+        cout << "Enter the output filename to save: ";
+        cin >> csvFilename;
+    }
+    cout << "\n" << endl;
+
     write_file(csvFilename, results, find_mean(results), find_median(results),find_mode(results));
 
     cout << "*** Goodbye. ***" << endl;
@@ -78,3 +85,19 @@ void printLastElements( string file, vector<double> data, int preSizeVector, int
     }
     cout << endl;
 }
+void printVectorContents(vector<double> data) {
+    for (std::size_t i = 0; i < data.size(); i++) {
+        cout << data.at(i) << " ";
+    }
+    cout<<endl;
+}
+void printStatistics(vector<double> data, double mean, double median, double mode) {
+    //print
+    cout << "The orderely sorted list of " << data.size() << " values is: " << endl;
+    printVectorContents(data);
+    //print stats
+    cout << "\nThe mean is " << fixed << setprecision(4) << mean << endl;
+    cout << "The median is " << fixed << setprecision(4) << median << endl;
+    cout << "The mode is " << fixed << setprecision(4) << mode;
+}
+

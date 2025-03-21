@@ -9,8 +9,8 @@
 
 using namespace std;
 
-void printVectorContents(std::ostream& out, vector<double> data);
-void printStatistics(std::ostream& out, vector<double> data, double mean, double median, double mode);
+void writeVectorContents(fstream& file, vector<double> data);
+void writeStatistics(fstream& file, vector<double> data, double mean, double median, double mode);
 
 
 /**

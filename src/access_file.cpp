@@ -5,20 +5,20 @@
 #include <fstream>
 using namespace std;
 
-void printVectorContents(std::ostream& out, vector<double> data) {
+void writeVectorContents(fstream& file, vector<double> data) {
     for (std::size_t i = 0; i < data.size(); i++) {
-        out << data.at(i) << " ";
+        file << data.at(i) << ",";
     }
-    out<<endl;
+    file <<endl;
 }
-void printStatistics(std::ostream& out, vector<double> data, double mean, double median, double mode) {
+void writeStatistics(fstream& file, vector<double> data, double mean, double median, double mode) {
     //print
-    out << "The orderely sorted list of " << data.size() << " values is: " << endl;
-    printVectorContents(out, data);
+    file << "The orderely sorted list of " << data.size() << " values is: " << endl;
+    writeVectorContents(file, data);
     //print stats
-    out << "\nThe mean is " << fixed << setprecision(4) << mean << endl;
-    out << "The median is " << fixed << setprecision(4) << median << endl;
-    out << "The mode is " << fixed << setprecision(4) << mode;
+    file << "\nmean," << fixed << setprecision(4) << mean << endl;
+    file << "median," << fixed << setprecision(4) << median << endl;
+    file << "mode," << fixed << setprecision(4) << mode;
 }
 
 bool check_file(string FILEPATH){
@@ -80,10 +80,10 @@ bool read_file(string FILEPATH, vector<double>& v) {
 
 bool write_file(string FILEPATH, vector<double> v, double mean, double median, double mode){
     fstream file;
-    //FIXME: check if file is valid
+    //only continue if accessible
     file.open(FILEPATH, ios::out);
     if (file.is_open()) {
-        printStatistics(file, v, mean, median, mode);
+        writeStatistics(file, v, mean, median, mode);
         cout << "*** File " << FILEPATH << " has been written to disk ***" << endl; 
         return true;
     }
