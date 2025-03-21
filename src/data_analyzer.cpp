@@ -2,7 +2,7 @@
  * data_analyzer.cpp
  * Name: Jonah Downing
  * Auburn UserID: jmd0178
- * Instructions; [cd to file]; [compile and run executable]
+ * Instructions; [cd into project_Downing_jmd1078]; make;./bin/main
  * Additional Help
  *  - ChatGPT
  *      - 
