@@ -17,6 +17,9 @@ using namespace std;
  */
 bool check_file(string FILEPATH);
 
+void printIllegalContentFound();
+
+bool isValidNumber(const string& str);
 /**
  * @brief read file in FILEPATH then parse the file and save its content into vector v
  * 
@@ -39,6 +42,7 @@ bool read_file(string FILEPATH, vector<double>& v);
  * @return false    writing process wasn't successful
  */
 bool write_file(string FILEPATH, vector<double> v, double mean, double median, double mode);
+
 
 
 #endif

@@ -6,12 +6,12 @@
 using namespace std;
 
 /*
-function name: sort_vector_accending
+function name: MergeSort
 arguements:
     v: a reference of a vector of double
 purpose: this function sort v in an accending order
 */
-void sort_vector_accending(vector<double>& v);
+void MergeSort(vector<double>& v, int left, int right);
 
 /*
 function name: merge

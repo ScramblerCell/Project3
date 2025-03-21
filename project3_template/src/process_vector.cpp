@@ -2,12 +2,14 @@
 #include "process_vector.hpp"
 using namespace std;
 
-void sort_vector_accending(vector<double>& v){
-    // put your inplementation here
+void MergeSort(vector<double>& v, int left, int right) {
+
+
 }
 
 vector<double> merge(vector<double> v1, vector<double> v2){
     // put your inplementation here
+
 }
 
 double find_mean (vector<double> v){

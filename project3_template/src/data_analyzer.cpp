@@ -44,10 +44,11 @@ int main(){
         
     //read file
         int preSize = results.size();
-        cout<< preSize<< endl;
-        read_file(fileToBeProcessed, results);
+        if(read_file(fileToBeProcessed, results)==false) {
+            i--;
+            continue;
+        }
         int postSize = results.size();
-        cout<< postSize << endl;
         printLastElements(fileToBeProcessed, results, preSize, postSize);
 
     //print elements in file (for testing purposes, remove afterwards)
@@ -55,7 +56,12 @@ int main(){
         cout << endl;
     }
 
-    //write to new vector cumulativeResults
+    //Statistics Section
+    cout << "*** Summarized Statistics ***\n" << endl;
+
+    //Sort 
+
+    //print stats
     cout << "Mean: " << find_mean(results) << endl;
 
 

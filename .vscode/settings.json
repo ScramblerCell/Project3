@@ -44,6 +44,7 @@
         "variant": "cpp",
         "algorithm": "cpp",
         "complex": "cpp",
-        "sstream": "cpp"
+        "sstream": "cpp",
+        "regex": "cpp"
     }
 }
