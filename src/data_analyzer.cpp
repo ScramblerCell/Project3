@@ -58,13 +58,13 @@ int main(){
     cout << "*** Summarized Statistics ***\n" << endl;
     printStatistics(std::cout, results, find_mean(results), find_median(results),find_mode(results));
     //write to CSV file
-    cout << "Enter the output filename to save: ";
+    cout << "\n\nEnter the output filename to save: ";
     string csvFilename; 
     cin >> csvFilename;
     cout << endl;
     write_file(csvFilename, results, find_mean(results), find_median(results),find_mode(results));
 
-    cout << "\n*** Goodbye. ***" << endl;
+    cout << "*** Goodbye. ***" << endl;
 }
 
 void printTitle() {

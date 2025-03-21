@@ -6,7 +6,7 @@
 using namespace std;
 
 void printVectorContents(std::ostream& out, vector<double> data) {
-    for (int i = 0; i < data.size(); i++) {
+    for (std::size_t i = 0; i < data.size(); i++) {
         out << data.at(i) << " ";
     }
     out<<endl;
@@ -18,7 +18,7 @@ void printStatistics(std::ostream& out, vector<double> data, double mean, double
     //print stats
     out << "\nThe mean is " << fixed << setprecision(4) << mean << endl;
     out << "The median is " << fixed << setprecision(4) << median << endl;
-    out << "The mode is " << fixed << setprecision(4) << mode << endl;
+    out << "The mode is " << fixed << setprecision(4) << mode;
 }
 
 bool check_file(string FILEPATH){
@@ -70,7 +70,7 @@ bool read_file(string FILEPATH, vector<double>& v) {
         return false;
     }
     //add fileData to v
-    for (int i = 0; i < fileData.size(); i++) {
+    for (std::size_t  i = 0; i < fileData.size(); i++) {
         v.push_back(fileData.at(i));
     }
 
@@ -84,6 +84,7 @@ bool write_file(string FILEPATH, vector<double> v, double mean, double median, d
     file.open(FILEPATH, ios::out);
     if (file.is_open()) {
         printStatistics(file, v, mean, median, mode);
+        cout << "*** File " << FILEPATH << " has been written to disk ***" << endl; 
         return true;
     }
     
