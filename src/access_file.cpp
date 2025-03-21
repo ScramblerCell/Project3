@@ -16,10 +16,6 @@ bool check_file(string FILEPATH){
         return false;
 
     }
-    
-
-    
-    
 }
 
 bool isValidNumber(const string& str) {

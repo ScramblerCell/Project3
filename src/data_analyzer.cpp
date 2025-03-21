@@ -33,9 +33,7 @@ int main(){
     cout << "Enter the number of files to read: ";
     cin >> NumFilesToRead;
     cout << endl;
-    /* while (check_file(!fileToBeProcessed)) {
-        
-    } */
+    
     //read and process the files
     for (int i = 1; i <= NumFilesToRead; i++ ) {
     //take in file to be processed
