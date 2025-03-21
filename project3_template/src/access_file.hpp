@@ -19,6 +19,13 @@ bool check_file(string FILEPATH);
 
 void printIllegalContentFound();
 
+/**
+ * @brief determines if inputs string is valid number to be evaluated
+ * 
+ * @param str       string to be evaluated
+ * @return true     if string is valid
+ * @return false    if string is not valid
+ */
 bool isValidNumber(const string& str);
 /**
  * @brief read file in FILEPATH then parse the file and save its content into vector v

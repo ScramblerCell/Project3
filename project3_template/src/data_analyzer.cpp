@@ -21,8 +21,9 @@ void printVectorContents(vector<double> data);
 void printLastElements(string file, vector<double> data, int preSizeVector, int postSizeVector);
 
 int main(){
-    
     vector<double> results;
+    string fileToBeProcessed;
+    
     printTitle();
 
     //read how many files will be processed
@@ -31,11 +32,7 @@ int main(){
     cin >> NumFilesToRead;
     cout << endl;
 
-    //take in fileName
-    //string ithFileName = "/Users/jonahdowning/AU Coding Projects/COMP2710/Project3/project3_template/src/data.txt";
-
-    string fileToBeProcessed;
-    
+    //read and process the files
     for (int i = 1; i <= NumFilesToRead; i++ ) {
     //take in file to be processed
         cout << "Enter the filename for file " << i << ": ";
@@ -51,7 +48,6 @@ int main(){
         int postSize = results.size();
         printLastElements(fileToBeProcessed, results, preSize, postSize);
 
-    //print elements in file (for testing purposes, remove afterwards)
 
         cout << endl;
     }
@@ -60,16 +56,17 @@ int main(){
     cout << "*** Summarized Statistics ***\n" << endl;
 
     //Sort 
-
+    mergeSort(results, 0, results.size()-1);
+    //print
+    cout << "The orderely sorted list of " << results.size() << " values is: " << endl;
+    printVectorContents(results);
     //print stats
-    cout << "Mean: " << find_mean(results) << endl;
+    cout << "The mean is " << find_mean(results) << endl;
+    cout << "The median is " << find_median(results) << endl;
+    cout << "The mode is " << find_mode(results) << endl;
 
+    cout << "*** Goodbye. ***" << endl;
 
-    //5. print elements from new vector
-    
-    //sort cumulativeResults into new file sortedResults
-    //printOrderedResults
-    
     //////////////////////////////////////
    /*  printTitle(); */
     //read how many files will be processed
@@ -111,8 +108,9 @@ cout<<"\n\n\n*** Welcome to Jonah's Data Analyzer ***\n";
 }
 void printVectorContents(vector<double> data) {
     for (int i = 0; i < data.size(); i++) {
-        cout << data.at(i) << endl;
+        cout << data.at(i) << " ";
     }
+    cout << "\n" <<endl;
 }
 void printLastElements(string file, vector<double> data, int preSizeVector, int postSizeVector) {
     cout << "The list of " << postSizeVector - preSizeVector << " values in file " << file << " is:" << endl; 

@@ -5,53 +5,48 @@
 
 using namespace std;
 
-/*
-function name: MergeSort
-arguements:
-    v: a reference of a vector of double
-purpose: this function sort v in an accending order
-*/
-void MergeSort(vector<double>& v, int left, int right);
-
-/*
-function name: merge
-arguements:
-    v1: a vector of double
-    v2: a vector of double
-return value: a vector of double that is the combination of v1 and v2
-*/
+/**
+ * @brief starts the recursive mergeSort algorithm
+ * 
+ * @param data  The vector to be sorted.
+ * @param left  The leftmost index of the subarray to be sorted.
+ * @param right The rightmost index of the subarray to be sorted.
+ */
+void mergeSort(vector<double>& v, int left, int right);
 
 /**
- * @brief 
+ * @brief key part of the inductive step within mergeSort method
  * 
- * @param v1 
- * @param v2 
- * @return vector<double> 
+ * @param data  The vector containing the subarrays to be merged.
+ * @param left  The leftmost index of the first subarray.
+ * @param mid   The middle index that divides the two subarrays.
+ * @param right The rightmost index of the second subarray.
  */
-vector<double> merge(vector<double> v1, vector<double> v2);
+void merge(vector<double> &data, int left, int mid, int right);
 
 
 /**
  * @brief finds mean
  * 
- * @param v     vector of doubles
- * @return double  that is the mean of all the doubles in v
+ * @param v         vector of doubles
+ * @return double   that is the mean of all the doubles in v
  */
 double find_mean (vector<double> v);
 
-/*
-function name: find_median
-arguements:
-    v: a vector of double
-return value: a double that is the median of all the doubles in v
-*/
+/**
+ * @brief finds middle value in vector; if 2 medians, then take average
+ * 
+ * @param v         sorted vector to be evaluated
+ * @return double   median value
+ */
 double find_median (vector<double> v);
-/*
-function name: find_mode
-arguements:
-    v: a vector of double
-return value: a double that is the mode of all the doubles in v
-*/
+
+/**
+ * @brief finds most frequent value in vector
+ * 
+ * @param v         sorted vector to be processed
+ * @return double   mode
+ */
 double find_mode (vector<double> v);
 
 #endif
