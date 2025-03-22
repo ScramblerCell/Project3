@@ -2,7 +2,24 @@
 #include "access_file.hpp"
 #include <vector>
 #include <regex>
+#include <fstream>
 using namespace std;
+
+void writeVectorContents(fstream& file, vector<double> data) {
+    for (std::size_t i = 0; i < data.size(); i++) {
+        file << data.at(i) << ",";
+    }
+    file <<endl;
+}
+void writeStatistics(fstream& file, vector<double> data, double mean, double median, double mode) {
+    //print
+    file << "The orderely sorted list of " << data.size() << " values is: " << endl;
+    writeVectorContents(file, data);
+    //print stats
+    file << "\nmean," << fixed << setprecision(4) << mean + .0005 << endl;
+    file << "median," << fixed << setprecision(4) << median + .0005 << endl;
+    file << "mode," << fixed << setprecision(4) << mode + .00005;
+}
 
 bool check_file(string FILEPATH){
     ifstream file;
@@ -32,16 +49,17 @@ bool read_file(string FILEPATH, vector<double>& v) {
     string currLine;
     vector<double> fileData;
 
-    while (std::getline(file, currLine)) {
+    while (getline(file, currLine)) {
         if (!isValidNumber(currLine)) {
             printIllegalContentFound();
             file.close();
+            cout << "true" << endl;
             return false;
         }
 
         try {
             fileData.push_back(stod(currLine));
-        } catch (const std::invalid_argument& e) {
+        } catch (const invalid_argument& e) {
             printIllegalContentFound();
             file.close();
             return false;
@@ -53,7 +71,7 @@ bool read_file(string FILEPATH, vector<double>& v) {
         return false;
     }
     //add fileData to v
-    for (int i = 0; i < fileData.size(); i++) {
+    for (std::size_t  i = 0; i < fileData.size(); i++) {
         v.push_back(fileData.at(i));
     }
 
@@ -62,9 +80,16 @@ bool read_file(string FILEPATH, vector<double>& v) {
 }
 
 bool write_file(string FILEPATH, vector<double> v, double mean, double median, double mode){
-    //
+    fstream file;
+    //only continue if accessible
+    file.open(FILEPATH, ios::out);
+    if (file.is_open()) {
+        writeStatistics(file, v, mean, median, mode);
+        cout << "*** File " << FILEPATH << " has been written to disk ***" << endl; 
+        return true;
+    }
+    
+    return false;
 }
-
-
 
 

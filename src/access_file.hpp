@@ -5,8 +5,12 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
+#include <regex>
 
 using namespace std;
+
+void writeVectorContents(fstream& file, vector<double> data);
+void writeStatistics(fstream& file, vector<double> data, double mean, double median, double mode);
 
 /**
  * @brief checks if FILEPATH is accessible
@@ -49,7 +53,5 @@ bool read_file(string FILEPATH, vector<double>& v);
  * @return false    writing process wasn't successful
  */
 bool write_file(string FILEPATH, vector<double> v, double mean, double median, double mode);
-
-
 
 #endif
