@@ -62,8 +62,7 @@ bool read_file(string FILEPATH, vector<double>& v) {
 }
 
 bool write_file(string FILEPATH, vector<double> v, double mean, double median, double mode){
-    // put your inplementation here
-    return true;
+    //
 }
 
 

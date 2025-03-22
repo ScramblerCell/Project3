@@ -3,3 +3,6 @@ bin/
 example_testcase/
 example_testcase_output/
 .DS_Store
+regular_test/
+corrupt_test/
+test/
