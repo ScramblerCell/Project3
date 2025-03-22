@@ -1,0 +1,6 @@
+The orderely sorted list of 3 values is: 
+-439.487 732.764 818.442 
+
+The mean is 370.5735
+The median is 732.7645
+The mode is 370.5735
