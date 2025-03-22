@@ -16,9 +16,9 @@ void writeStatistics(fstream& file, vector<double> data, double mean, double med
     file << "The orderely sorted list of " << data.size() << " values is: " << endl;
     writeVectorContents(file, data);
     //print stats
-    file << "\nmean," << fixed << setprecision(4) << mean << endl;
-    file << "median," << fixed << setprecision(4) << median << endl;
-    file << "mode," << fixed << setprecision(4) << mode;
+    file << "\nmean," << fixed << setprecision(4) << mean + .0005 << endl;
+    file << "median," << fixed << setprecision(4) << median + .0005 << endl;
+    file << "mode," << fixed << setprecision(4) << mode + .00005;
 }
 
 bool check_file(string FILEPATH){
@@ -49,16 +49,17 @@ bool read_file(string FILEPATH, vector<double>& v) {
     string currLine;
     vector<double> fileData;
 
-    while (std::getline(file, currLine)) {
+    while (getline(file, currLine)) {
         if (!isValidNumber(currLine)) {
             printIllegalContentFound();
             file.close();
+            cout << "true" << endl;
             return false;
         }
 
         try {
             fileData.push_back(stod(currLine));
-        } catch (const std::invalid_argument& e) {
+        } catch (const invalid_argument& e) {
             printIllegalContentFound();
             file.close();
             return false;
@@ -90,7 +91,5 @@ bool write_file(string FILEPATH, vector<double> v, double mean, double median, d
     
     return false;
 }
-
-
 
 

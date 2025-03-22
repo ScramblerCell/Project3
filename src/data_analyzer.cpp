@@ -91,13 +91,16 @@ void printVectorContents(vector<double> data) {
     }
     cout<<endl;
 }
+
+
+
 void printStatistics(vector<double> data, double mean, double median, double mode) {
     //print
     cout << "The orderely sorted list of " << data.size() << " values is: " << endl;
     printVectorContents(data);
     //print stats
-    cout << "\nThe mean is " << fixed << setprecision(4) << mean << endl;
-    cout << "The median is " << fixed << setprecision(4) << median << endl;
-    cout << "The mode is " << fixed << setprecision(4) << mode;
+    cout << "\nThe mean is " << fixed << setprecision(4) << mean + .0005 << endl;
+    cout << "The median is " << fixed << setprecision(4) << median + .0005 << endl;
+    cout << "The mode is " << fixed << setprecision(4) << mode + .0005;
 }
 

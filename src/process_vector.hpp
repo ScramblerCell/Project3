@@ -6,7 +6,6 @@
 
 using namespace std;
 
-
 /**
  * @brief starts the recursive mergeSort algorithm
  * 
