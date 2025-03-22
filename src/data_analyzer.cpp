@@ -63,9 +63,9 @@ int main(){
     cout << "The orderely sorted list of " << results.size() << " values is: " << endl;
     printVectorContents(results);
     //print stats
-    cout << "The mean is " << fixed << setprecision(4) << find_mean(results) << endl;
-    cout << "The median is " << fixed << setprecision(4) << find_median(results) << endl;
-    cout << "The mode is " << fixed << setprecision(4) << find_mode(results) << endl;
+    cout << "The mean is " << fixed << setprecision(4) << find_mean(results) + .0005 << endl;
+    cout << "The median is " << fixed << setprecision(4) << find_median(results) + .0005<< endl;
+    cout << "The mode is " << fixed << setprecision(4) << find_mode(results) + .0005 << endl;
 
     cout << "\n*** Goodbye. ***" << endl;
 }
