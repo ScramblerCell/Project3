@@ -11,7 +11,7 @@
     _main in data_analyzer-f7e57e.o
     ld: symbol(s) not found for architecture arm64
     clang: error: linker command failed with exit code 1 (use -v to see invocation)
-    - what are potential reasons that i’d get this error
+    - what are potential reasons that i’d zget this error
     - what does this meanclang: warning: treating 'c-header' input as 'c++-header' when in C++ mode, this behavior is deprecated [-Wdeprecated]
     - what about this line?zsh: permission denied: /Users/jonahdowning/AU Coding Projects/COMP2710/Project3/project3_template/src/access_file
     - why would i get this error:
